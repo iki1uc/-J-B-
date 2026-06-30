@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>-J-B- / ch</title>
+  <style>
+    body { font-family: monospace; background:#000; color:#0ff; padding:20px; }
+    .box { border:1px solid #0ff; padding:20px; width:300px; }
+  </style>
+</head>
+<body>
+
+<h2>-J-B- / ch</h2>
+
+<div class="box">
+  <div id="status"></div>
+  <div id="raw"></div>
+  <div id="jb"></div>
+</div>
+
+<script>
+function checkIndex() {
+  const LAGE = "A";       // später: echte Übergabe
+  const KONTEXT = "LIVE"; // später: echte Übergabe
+  const POSITION = 7;     // später: echte Übergabe
+  const ZUSTAND = 1;      // später: echte Übergabe
+
+  const J = (!LAGE || !KONTEXT || !POSITION || !ZUSTAND);
+  const B = !J;
+  const E = "^";
+
+  document.getElementById("status").innerText =
+    "STATUS: " + (B ? "index.html OK" : "index.html FEHLT");
+
+  const RAW = POSITION * ZUSTAND;
+  document.getElementById("raw").innerText = "RAW: " + RAW;
+
+  document.getElementById("jb").innerText = "(J)" + E + "(B) = " + (B ? "OK" : "FEHLT");
+}
+
+checkIndex();
+</script>
+
+</body>
+</html>
 
