@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>-J-B- / index</title>
+  <style>
+    body { font-family: monospace; background:#111; color:#0f0; padding:20px; }
+    .box { border:1px solid #0f0; padding:20px; width:300px; }
+  </style>
+</head>
+<body>
+
+<h2>-J-B- / index</h2>
+
+<div class="box">
+  <div id="lage"></div>
+  <div id="kontext"></div>
+  <div id="position"></div>
+  <div id="zustand"></div>
+  <hr>
+  <div id="jb"></div>
+</div>
+
+<script>
+function genLAGE() {
+  const raeume = ["A", "B", "C", "D"];
+  return raeume[Math.floor(Math.random() * raeume.length)];
+}
+
+function genKONTEXT() {
+  const kontexte = ["TEST", "LIVE", "PROD"];
+  return kontexte[Math.floor(Math.random() * kontexte.length)];
+}
+
+function genPOSITION() {
+  return Math.floor(Math.random() * 12) + 1;
+}
+
+function genZUSTAND() {
+  const zustaende = [0, 1];
+  return zustaende[Math.floor(Math.random() * zustaende.length)];
+}
+
+function genVierAchsen() {
+  return {
+    LAGE: genLAGE(),
+    KONTEXT: genKONTEXT(),
+    POSITION: genPOSITION(),
+    ZUSTAND: genZUSTAND()
+  };
+}
+
+function JB_AUTO() {
+  const { LAGE, KONTEXT, POSITION, ZUSTAND } = genVierAchsen();
+
+  document.getElementById("lage").innerText = "LAGE: " + LAGE;
+  document.getElementById("kontext").innerText = "KONTEXT: " + KONTEXT;
+  document.getElementById("position").innerText = "POSITION: " + POSITION;
+  document.getElementById("zustand").innerText = "ZUSTAND: " + ZUSTAND;
+
+  const J = (!LAGE || !KONTEXT || !POSITION || !ZUSTAND);
+  const B = !J;
+  const E = "^";
+
+  document.getElementById("jb").innerText = "(J)" + E + "(B) = " + (B ? "OK" : "FEHLT");
+}
+
+JB_AUTO();
+</script>
+
+</body>
+</html>
 
